@@ -4,8 +4,8 @@ ing: border-box;
 body {
   font-family: 'Inter', sans-serif;
   line-height: 1.7;
-  color: #333;
-  background: #fafafa;
+  color: #ff6b00;
+  background: #000000;
 }
 
 .container {
@@ -171,3 +171,4 @@ footer a {
   .hero h1 { font-size: 2.5rem; }
   .nav-links { gap: 1rem; }
 }
+
