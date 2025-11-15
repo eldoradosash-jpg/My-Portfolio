@@ -1,74 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Donatas | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fumiz - Furniture and Interior Design</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffd700; /* Gold/yellow */
+        }
+        .logo::before {
+            content: "📦"; /* Simple icon placeholder */
+            margin-right: 10px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+        nav a {
+            color: #ffd700;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .search {
+            color: #ffd700;
+            font-size: 20px;
+        }
+        .hero {
+            height: 100vh;
+            background: linear-gradient(to right, #1a1a1a, #2d2d2d);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 50px;
+            position: relative;
+            margin-top: 80px; /* Account for fixed header */
+        }
+        .hero-content {
+            max-width: 50%;
+        }
+        .hero h1 {
+            font-size: 48px;
+            color: #ffd700;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+        .explore-btn {
+            background-color: #ffa500; /* Orange */
+            color: #000;
+            padding: 15px 30px;
+            border: none;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .hero-image {
+            position: relative;
+            max-width: 50%;
+        }
+        .hero-image::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="%23ffd700" opacity="0.1"/></svg>') no-repeat center; /* Placeholder for chair/plant */
+            background-size: cover;
+        }
+        .social-icons {
+            position: absolute;
+            top: 50%;
+            right: 50px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background-color: #ffd700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+        }
+        .video-section {
+            height: 300px;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .video-placeholder {
+            width: 80%;
+            height: 80%;
+            background-color: #555;
+            position: relative;
+        }
+        .video-placeholder::after {
+            content: "▶"; /* Play icon */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            color: #ffd700;
+        }
+        .floor {
+            height: 100px;
+            background: linear-gradient(to bottom, #808080, #a9a9a9);
+        }
+        .lorem-section {
+            padding: 50px;
+            text-align: center;
+            background-color: #000;
+        }
+        .lorem-section p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #ccc;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .home-interior {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px;
+            background-color: #000;
+        }
+        .home-interior-images {
+            display: flex;
+            gap: 20px;
+            max-width: 50%;
+        }
+        .home-interior-images img {
+            width: 200px;
+            height: 300px;
+            background-color: #ffd700; /* Placeholder images */
+            border-radius: 10px;
+        }
+        .home-interior-content {
+            max-width: 50%;
+            text-align: right;
+        }
+        .home-interior h2 {
+            font-size: 48px;
+            color: #ffd700;
+            margin-bottom: 20px;
+        }
+        .home-interior p {
+            color: #ccc;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .explore-btn2 {
+            background-color: #ffa500;
+            color: #000;
+            padding: 15px 30px;
+            border: none;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <nav class="container">
-      <a href="#" class="logo">Donatas</a>
-      <ul class="nav-links">
-        <li><a href="#work">Work</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header class="header">
+        <div class="logo">Fumiz</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="search">🔍</div>
+    </header>
 
-  <section class="hero container">
-    <h1>Hi, I’m <span>Donatas</span></h1>
-    <p>Freelance Designer / Developer / Photographer based in London, UK</p>
-    <a href="#work" class="btn">View My Work</a>
-  </section>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Transform your space</h1>
+            <p>with our furniture and interior design</p>
+            <button class="explore-btn">Explore</button>
+        </div>
+        <div class="hero-image"></div>
+        <div class="social-icons">
+            <a href="#">in</a>
+            <a href="#">f</a>
+            <a href="#">t</a>
+        </div>
+    </section>
 
-  <section id="work" class="work container">
-    <h2>Selected Work</h2>
-    <div class="grid">
-      <!-- Add your projects here -->
-      <div class="project">
-        <img src="https://picsum.photos/600/400?random=1" alt="Project 1" />
-        <h3>Brand Identity for Tech Startup</h3>
-        <p>Logo, UI Kit, Pitch Deck</p>
-        <a href="#" class="link">View Case Study →</a>
-      </div>
-      <div class="project">
-        <img src="https://picsum.photos/600/400?random=2" alt="Project 2" />
-        <h3>E-commerce Website Redesign</h3>
-        <p>Shopify, 45% conversion boost</p>
-        <a href="#" class="link">View Live Site →</a>
-      </div>
-      <div class="project">
-        <img src="https://picsum.photos/600/400?random=3" alt="Project 3" />
-        <h3>Photography Portfolio</h3>
-        <p>London Street Series</p>
-        <a href="#" class="link">View Gallery →</a>
-      </div>
-    </div>
-  </section>
+    <section class="video-section">
+        <div class="video-placeholder"></div>
+    </section>
 
-  <section id="about" class="about container">
-    <h2>About Me</h2>
-    <p>I’m a multidisciplinary creative with 5+ years turning ideas into digital experiences. From London cafés to global brands, I help businesses stand out.</p>
-    <p><strong>Skills:</strong> UI/UX, Branding, Web Dev, Photography, Figma, React, Shopify</p>
-    <a href="mailto:you@yourdomain.co.uk" class="btn">Get in Touch</a>
-  </section>
+    <div class="floor"></div>
 
-  <footer id="contact" class="container">
-    <p>© 2025 Your Name. Made in the UK 🇬🇧</p>
-    <p>
-      <a href="mailto:you@yourdomain.co.uk">you@yourdomain.co.uk</a> | 
-      <a href="https://linkedin.com/in/yourprofile">LinkedIn</a> | 
-      <a href="https://github.com/yourgithub">GitHub</a>
-    </p>
-  </footer>
+    <section class="lorem-section">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </section>
 
-  <script src="script.js"></script>
+    <section class="home-interior">
+        <div class="home-interior-images">
+            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150'><rect width='100' height='150' fill='%23ffd700'/></svg>" alt="Art">
+            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150'><rect width='100' height='150' fill='%23ffd700'/></svg>" alt="Room">
+        </div>
+        <div class="home-interior-content">
+            <h2>HOME INTERIOR</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <button class="explore-btn2">Explore</button>
+        </div>
+    </section>
 </body>
 </html>
-
