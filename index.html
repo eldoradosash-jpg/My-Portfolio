@@ -119,12 +119,18 @@
             align-items: center;
             background-color: #f9f9f9;
             overflow: hidden; /* Prevents image overflow */
+            position: relative;
         }
         .photo-area img {
             width: 100%;
             height: 100%;
             object-fit: cover; /* Fills area nicely, crops if needed */
             border-radius: 5px;
+        }
+        .photo-placeholder {
+            font-size: 0.9em;
+            color: #666;
+            text-align: center;
         }
         .page-boundary {
             grid-column: 1 / -1;
@@ -172,7 +178,7 @@
     <main class="main-content">
         <section class="text-section">
             <div class="company-name">COMPANY NAME</div>
-            <a href="contact-details.html" target="_blank" class="contact-button">CONTACT</a>
+            <a href="contact-details.html" target="_blank" class="contact-button">PRESS BUTTON FOR CONTACT DETAILS</a>
             
             <div class="description">
                 Welcome to our design hub,<br>
@@ -189,8 +195,8 @@
 
         <section class="photo-section">
             <div class="photo-area">
-                <!-- Temporary placeholder: Replace 'your-image-filename.jpg' with your exact file (e.g., 'MyPortfolio.jpg') -->
-                <img src="https://via.placeholder.com/400x300/cccccc/333333?text=My+Portfolio+Image" alt="Uploaded Photo">
+                <!-- Use this placeholder for now - it will show immediately. Replace src with your relative file path (e.g., "my-portfolio.jpg") once fixed -->
+                <img src="https://via.placeholder.com/400x300/cccccc/333333?text=PHOTO+AREA+UPLOADED+FROM+DEVICE" alt="Uploaded Photo">
             </div>
         </section>
     </main>
