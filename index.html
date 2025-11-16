@@ -1,163 +1,202 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DSN - Design Studio</title>
+    <title>Design Hub</title>
     <style>
         body {
             margin: 0;
-            padding: 0;
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            line-height: 1.4;
             color: #333;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            grid-template-rows: 80px 1fr;
+            min-height: 100vh;
+            background-color: white;
         }
-        .header {
-            background-color: #ff0000; /* Red */
-            color: white;
-            padding: 10px 20px;
+        header {
+            grid-column: 1 / -1;
+            background-color: #ff0000; /* Red band at the top */
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 40px;
         }
         .logo {
-            font-size: 24px;
+            font-size: 2em;
             font-weight: bold;
+            color: white;
         }
-        .nav-links {
+        .nav {
             display: flex;
             gap: 20px;
         }
-        .nav-links a {
+        .nav a {
             color: #00ff00; /* Green */
             text-decoration: none;
             font-weight: bold;
         }
-        .nav-links a:hover {
+        .nav a:hover {
             text-decoration: underline;
         }
-        .container {
-            display: flex;
-            min-height: 80vh;
-        }
         .sidebar {
-            background-color: #ff0000; /* Red */
-            width: 200px;
+            grid-column: 1;
+            grid-row: 2;
+            background-color: #ff0000; /* Red sidebar */
             padding: 20px;
-            color: white;
+            display: flex;
+            align-items: flex-start;
         }
         .main-content {
-            flex: 1;
-            padding: 20px;
+            grid-column: 2;
+            grid-row: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 40px;
+            align-content: start;
+        }
+        .text-section {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
+            align-items: flex-start;
         }
         .company-name {
-            font-size: 36px;
+            font-size: 1.5em;
             font-weight: bold;
             margin-bottom: 20px;
-            color: #333;
         }
-        .contact-btn {
-            background-color: #ff0000;
+        .contact-button {
+            background-color: #333;
             color: white;
             padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            margin-bottom: 20px;
-            font-size: 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            display: inline-block;
         }
-        .contact-btn:hover {
-            background-color: #cc0000;
+        .contact-button:hover {
+            background-color: #555;
         }
         .description {
-            font-size: 18px;
-            line-height: 1.6;
+            font-size: 1.1em;
             margin-bottom: 20px;
-            max-width: 600px;
+            line-height: 1.4;
         }
-        .learn-more-btn {
+        .learn-more-button {
             background-color: transparent;
             color: #00ff00; /* Green */
-            border: 2px solid #00ff00;
             padding: 10px 20px;
-            cursor: pointer;
-            font-size: 16px;
+            text-decoration: none;
+            border: 2px solid #00ff00;
+            border-radius: 5px;
+            display: inline-block;
+            align-self: flex-start;
         }
-        .learn-more-btn:hover {
+        .learn-more-button:hover {
             background-color: #00ff00;
             color: white;
         }
-        .photo-area {
-            margin-left: 20px;
+        .photo-section {
             display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
             align-items: center;
-        }
-        .photo-area img {
-            max-width: 300px;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        .footer {
-            background-color: #333;
-            color: white;
             text-align: center;
-            padding: 10px;
+        }
+        .photo-area {
+            width: 100%;
+            height: 300px;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f9f9f9;
+            overflow: hidden; /* Prevents image overflow */
             position: relative;
         }
+        .photo-area img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Fills area nicely, crops if needed */
+            border-radius: 5px;
+        }
         .page-boundary {
-            border-top: 2px solid #ccc;
-            margin-top: 20px;
-            padding-top: 10px;
+            grid-column: 1 / -1;
+            height: 1px;
+            background-color: #000;
+            margin-top: auto;
+        }
+        @media (max-width: 768px) {
+            body {
+                grid-template-columns: 1fr;
+                grid-template-rows: 80px auto 1fr;
+            }
+            header {
+                grid-column: 1;
+            }
+            .sidebar {
+                grid-row: 2;
+                grid-column: 1;
+                height: 0; /* Hide sidebar on mobile */
+                padding: 0;
+            }
+            .main-content {
+                grid-column: 1;
+                grid-row: 3;
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .page-boundary {
+                grid-row: 4;
+            }
         }
     </style>
 </head>
 <body>
-    <header class="header">
+    <header>
         <div class="logo">DSN</div>
-        <nav class="nav-links">
-            <a href="#contact">CONTACT</a>
-            <a href="#about">ABOUT</a>
+        <nav class="nav">
+            <a href="contact.html" target="_blank">CONTACT</a>
+            <a href="about.html" target="_blank">ABOUT</a>
         </nav>
     </header>
     
-    <div class="container">
-        <aside class="sidebar">
-            <!-- Sidebar content can be added here if needed -->
-        </aside>
-        
-        <main class="main-content">
-            <div class="company-section">
-                <h1 class="company-name">DSN Design Studio</h1>
-                <button class="contact-btn" onclick="openContact()">CONTACT</button>
-                <p class="description">
-                    Where quality design meets innovation. We craft digital experiences that elevate your brand's potential. Partner with us to bring your vision to life.
-                </p>
-                <button class="learn-more-btn" onclick="openLearnMore()">LEARN MORE</button>
+    <div class="sidebar"></div>
+
+    <main class="main-content">
+        <section class="text-section">
+            <div class="company-name">COMPANY NAME</div>
+            <a href="contact-details.html" target="_blank" class="contact-button">PRESS BUTTON FOR CONTACT DETAILS [OPENS NEW PAGE]</a>
+            
+            <div class="description">
+                Welcome to our design hub,<br>
+                where creativity meets<br>
+                precision. Our expert team<br>
+                crafts innovative solutions<br>
+                that transform spaces and<br>
+                elevate your brand's visual<br>
+                identity.
             </div>
             
-            <div class="photo-area">
-                <img src="ME.jpg" alt="Profile Photo" id="photoImage">
-            </div>
-        </main>
-    </div>
-    
-    <footer class="footer">
-        <div class="page-boundary">
-            Page Boundary
-        </div>
-    </footer>
+            <a href="learn-more.html" target="_blank" class="learn-more-button">BUTTON LEARN MORE. [OPENS NEW PAGE]</a>
+        </section>
 
-    <script>
-        function openContact() {
-            alert('Contact details page would open here.');
-        }
-        
-        function openLearnMore() {
-            alert('Learn more page would open here.');
-        }
-    </script>
+        <section class="photo-section">
+            <div class="photo-area">
+                <!-- Updated src for your local path - rename your image file to 'my-portfolio.jpg' (no spaces) and place it in the same folder as this HTML file -->
+                <img src="my-portfolio.jpg" alt="My Portfolio">
+            </div>
+        </section>
+    </main>
+
+    <div class="page-boundary"></div>
 </body>
 </html>
