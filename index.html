@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,27 +118,8 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-bottom: 10px;
             background-color: #f9f9f9;
             font-size: 0.9em;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .photo-area:hover {
-            background-color: #e9e9e9;
-        }
-        .photo-area.dragover {
-            background-color: #d0d0d0;
-            border-color: #00ff00;
-        }
-        .photo-area img,
-        .photo-area video {
-            max-width: 100%;
-            max-height: 100%;
-            border-radius: 5px;
-        }
-        .file-input {
-            display: none;
         }
         .page-boundary {
             grid-column: 1 / -1;
@@ -200,67 +183,12 @@
         </section>
 
         <section class="photo-section">
-            <div class="photo-area" id="photoArea">
+            <div class="photo-area">
                 <p>PHOTO AREA UPLOADED FROM DEVICE</p>
-                <div id="mediaPreview"></div>
             </div>
-            <input type="file" id="fileInput" class="file-input" accept="image/*,video/*">
         </section>
     </main>
 
     <div class="page-boundary"></div>
-
-    <script>
-        const fileInput = document.getElementById('fileInput');
-        const photoArea = document.getElementById('photoArea');
-        const mediaPreview = document.getElementById('mediaPreview');
-        const defaultText = photoArea.querySelector('p');
-
-        // Click to upload
-        photoArea.addEventListener('click', () => {
-            fileInput.click();
-        });
-
-        // Drag and drop
-        photoArea.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            photoArea.classList.add('dragover');
-        });
-
-        photoArea.addEventListener('dragleave', () => {
-            photoArea.classList.remove('dragover');
-        });
-
-        photoArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            photoArea.classList.remove('dragover');
-            const files = e.dataTransfer.files;
-            if (files.length > 0) {
-                handleFile(files[0]);
-            }
-        });
-
-        fileInput.addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            if (file) {
-                handleFile(file);
-            }
-        });
-
-        function handleFile(file) {
-            if (file.type.startsWith('image/')) {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    mediaPreview.innerHTML = `<img src="${e.target.result}" alt="Uploaded Image">`;
-                    defaultText.style.display = 'none';
-                };
-                reader.readAsDataURL(file);
-            } else if (file.type.startsWith('video/')) {
-                const url = URL.createObjectURL(file);
-                mediaPreview.innerHTML = `<video controls src="${url}" alt="Uploaded Video"></video>`;
-                defaultText.style.display = 'none';
-            }
-        }
-    </script>
 </body>
 </html>
