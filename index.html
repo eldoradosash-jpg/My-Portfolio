@@ -18,7 +18,7 @@
         }
         header {
             grid-column: 1 / -1;
-            background-color: #ffa500; /* Orange band */
+            background-color: #ff0000; /* Red band at the top */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -44,7 +44,10 @@
         .sidebar {
             grid-column: 1;
             grid-row: 2;
-            background-color: #ffa500; /* Orange sidebar */
+            background-color: #ff0000; /* Red sidebar */
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
         }
         .main-content {
             grid-column: 2;
@@ -154,6 +157,7 @@
                 grid-row: 2;
                 grid-column: 1;
                 height: 0; /* Hide sidebar on mobile */
+                padding: 0;
             }
             .main-content {
                 grid-column: 1;
