@@ -1,10 +1,9 @@
-<!-- Contact page: contact.html (unchanged, but nav updated for consistency) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | DSN - Design Solutions for Modern Challenges</title>
+    <title>DSN | Design Solutions for Modern Challenges</title>
     <style>
         * {
             margin: 0;
@@ -16,7 +15,7 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #fff;
-            background-color: #1a1a1a; /* Dark background to match main site */
+            background-color: #1a1a1a; /* Dark background */
         }
 
         header {
@@ -26,6 +25,10 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 4px solid #228B22; /* Green border */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
 
         .logo {
@@ -45,15 +48,113 @@
             text-decoration: none;
             font-size: 1.1rem;
             transition: color 0.3s;
+            cursor: pointer;
         }
 
-        nav a:hover {
-            color: #90EE90; /* Light green hover */
+        nav a:hover, nav a.active {
+            color: #90EE90; /* Light green hover/active */
+        }
+
+        .section {
+            display: none;
+            padding-top: 100px; /* Account for fixed header */
+            min-height: 100vh;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .hero {
+            background-color: #2d2d2d; /* Darker gray */
+            padding: 4rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            border: 4px solid #228B22; /* Green border around hero */
+            margin: 0 2rem;
+            position: relative;
+        }
+
+        .hero-image {
+            flex: 0 0 40%;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            filter: blur(2px); /* Blurred as in mockup */
+            border: 2px solid #228B22; /* Green highlight box */
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .services {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            border: 4px solid #228B22; /* Green border */
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #fff;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: #3d3d3d; /* Slightly lighter dark */
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #228B22; /* Green border on cards */
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #90EE90; /* Light green for prices */
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            opacity: 0.9;
         }
 
         .contact-content {
             max-width: 800px;
-            margin: 4rem auto;
+            margin: 0 auto 4rem;
             padding: 0 2rem;
             border: 4px solid #228B22; /* Green border */
             background-color: #2d2d2d;
@@ -98,6 +199,11 @@
             padding: 2rem;
             border-radius: 8px;
             border: 2px solid #228B22;
+        }
+
+        .contact-form h2 {
+            margin-bottom: 1rem;
+            color: #fff;
         }
 
         .form-group {
@@ -151,6 +257,23 @@
         }
 
         @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                margin: 0 1rem;
+                padding: 2rem 1rem;
+            }
+
+            .hero-image {
+                flex: none;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
             .contact-info {
                 grid-template-columns: 1fr;
             }
@@ -162,52 +285,127 @@
         <div class="logo">DSN</div>
         <nav>
             <ul>
-                <li><a href="index.html">Services</a></li> <!-- Opens in same tab -->
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#" data-section="services" class="active">Services</a></li>
+                <li><a href="#" data-section="contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="contact-content">
-        <h1>Get in Touch</h1>
-        
-        <section class="contact-info">
-            <div class="contact-item">
-                <h3>Email</h3>
-                <p>info@dsn-design.com</p>
+    <!-- Services Section (Default Active) -->
+    <section id="services" class="section active">
+        <div class="hero">
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/400x500/1a1a1a/fff?text=Portrait" alt="Portrait Image">
             </div>
-            <div class="contact-item">
-                <h3>Phone</h3>
-                <p>+44 (0)20 1234 5678</p>
+            <div class="hero-content">
+                <h1>Design Solutions for Modern Challenges Expert Design Solutions for Modern Challenges</h1>
+                <p>Where creativity meets precision. Our expert design solutions transform spaces and elevate your brand.</p>
             </div>
-            <div class="contact-item">
-                <h3>Address</h3>
-                <p>123 Design Street<br>London, UK<br>SW1A 1AA</p>
-            </div>
-        </section>
+        </div>
 
-        <section class="contact-form">
-            <h2>Send Us a Message</h2>
-            <form action="#" method="post">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
+        <div class="services">
+            <h2>Our Services</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/300x200/3d3d3d/fff?text=Basic+Service+Image" alt="Basic Service">
+                    <h3>Basic Service<br>£90</h3>
+                    <p>Describe details, price, length of service, and why it's important for your needs.</p>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/300x200/3d3d3d/fff?text=Intermediate+Service+Image" alt="Intermediate Service">
+                    <h3>Intermediate Service<br>£180</h3>
+                    <p>Describe details, price, length of service, and why it's important for your needs.</p>
                 </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/300x200/3d3d3d/fff?text=Advanced+Service+Image" alt="Advanced Service">
+                    <h3>Advanced Service<br>£250</h3>
+                    <p>Describe details, price, length of service, and why it's important for your needs.</p>
                 </div>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
-        </section>
-    </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="contact-content">
+            <h1>Get in Touch</h1>
+            
+            <section class="contact-info">
+                <!-- EDIT THESE WITH YOUR REAL DETAILS -->
+                <div class="contact-item">
+                    <h3>Your Name</h3>
+                    <p>John Doe (or your full name)</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Phone</h3>
+                    <p>+44 (0)70 1234 5678 (or your tel number)</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <p>your.email@example.com</p>
+                </div>
+            </section>
+
+            <section class="contact-form">
+                <h2>Send Us a Message</h2>
+                <form id="contactForm" action="#" method="post">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tel">Phone</label>
+                        <input type="tel" id="tel" name="tel" placeholder="Your Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </section>
+        </div>
+    </section>
 
     <footer>
         <p>&copy; 2025 DSN. All rights reserved. | <a href="#" style="color: #90EE90;">Privacy Policy</a></p>
     </footer>
+
+    <script>
+        // Simple JS to toggle sections on nav click
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('nav a[data-section]');
+            const sections = document.querySelectorAll('.section');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetSection = this.getAttribute('data-section');
+
+                    // Hide all sections and remove active class
+                    sections.forEach(section => section.classList.remove('active'));
+                    navLinks.forEach(l => l.classList.remove('active'));
+
+                    // Show target section and add active class to link
+                    document.getElementById(targetSection).classList.add('active');
+                    this.classList.add('active');
+
+                    // If switching to contact, auto-fill form with your details
+                    if (targetSection === 'contact') {
+                        document.getElementById('name').value = 'John Doe'; // EDIT: Replace with your name
+                        document.getElementById('tel').value = '+44 (0)70 1234 5678'; // EDIT: Replace with your tel
+                        document.getElementById('email').value = 'your.email@example.com'; // EDIT: Replace with your email
+                    }
+
+                    // Scroll to top for smooth navigation
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
