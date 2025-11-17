@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Line Co Web Layout</title>
+    <title>DSN | Transform Your Space - Get Started</title>
     <style>
         * {
             margin: 0;
@@ -13,179 +13,172 @@
 
         body {
             font-family: Arial, sans-serif;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
+            line-height: 1.6;
+            color: #333;
         }
 
         header {
-            background-color: #000;
+            background-color: #2c3e50;
             color: #fff;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 20px;
-            position: relative;
+            padding: 1rem 0;
+            text-align: center;
         }
 
-        .logo {
-            color: #00ff00; /* Green as per sketch */
-            font-weight: bold;
-            font-size: 24px;
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
         }
 
-        .header-info {
-            color: #00ff00; /* Green */
-            font-size: 14px;
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
         }
 
-        .user-menu {
-            background-color: #00ff00; /* Green box */
-            color: #000;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 12px;
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1920x600?text=Transform+Your+Space') center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
         }
 
-        nav {
-            background-color: #00ff00; /* Green sidebar */
-            width: 200px;
-            height: calc(100vh - 120px); /* Adjust for header and footer */
-            position: fixed;
-            left: 0;
-            top: 60px;
-            padding: 20px;
-            overflow-y: auto;
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
         }
 
-        nav ul {
-            list-style: none;
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
         }
 
-        nav li {
-            margin-bottom: 10px;
-        }
-
-        nav a {
-            color: #000;
+        .cta-button {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 15px 30px;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
 
-        main {
-            margin-left: 200px;
-            margin-top: 20px;
-            flex: 1;
-            padding: 20px;
-            display: flex;
-            gap: 20px;
+        .cta-button:hover {
+            background-color: #c0392b;
         }
 
-        .content-area {
-            flex: 1;
-            border: 2px solid #0066cc; /* Blue border for main content */
-            padding: 20px;
-            position: relative;
-            min-height: 400px;
+        .services {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .close-cross {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            color: #0066cc; /* Blue cross */
-            font-size: 24px;
-            font-weight: bold;
-            cursor: pointer;
+        .services h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
         }
 
-        .blue-lines {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
-        .blue-line {
-            stroke: #0066cc; /* Blue lines */
-            stroke-width: 2;
-            fill: none;
+        .service-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        .play-triangle {
-            position: absolute;
-            bottom: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 30px solid transparent;
-            border-right: 30px solid transparent;
-            border-top: 50px solid #9932cc; /* Purple-ish triangle as per potential sketch interpretation */
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
         }
 
-        .sidebar {
-            width: 250px;
-            background-color: #f0f0f0;
-            padding: 20px;
-            height: fit-content;
+        .about {
+            background-color: #ecf0f1;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+        }
+
+        .get-started {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #2c3e50;
+            color: #fff;
+        }
+
+        .get-started h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
         footer {
-            background-color: #000;
+            background-color: #34495e;
             color: #fff;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: fixed;
-            bottom: 0;
-            left: 200px;
-            right: 0;
+            text-align: center;
+            padding: 20px;
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">Line Co</div>
-        <div class="header-info">Pluto, New York</div>
-        <div class="user-menu">User Menu</div>
+        <h1>DSN Home Services, LLC</h1>
+        <p>Quality Contractor Services</p>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Analytics</a></li>
-            <li><a href="#">Settings</a></li>
-        </ul>
-    </nav>
+    <section class="hero">
+        <h2>Transform Your Space</h2>
+        <p>Expert organization for closets, pantries, and more.</p>
+        <a href="#get-started" class="cta-button">Get Started Today</a>
+    </section>
 
-    <main>
-        <section class="content-area">
-            <div class="close-cross">&times;</div>
-            <svg class="blue-lines" width="200" height="200" viewBox="0 0 200 200">
-                <line class="blue-line" x1="50" y1="50" x2="150" y2="150" />
-                <line class="blue-line" x1="150" y1="50" x2="50" y2="150" />
-            </svg>
-            <div class="play-triangle"></div>
-            <h2>Main Content Area</h2>
-            <p>This is the primary content section with overlaid elements matching the wireframe.</p>
-        </section>
+    <section class="services" id="services">
+        <h2>Our Services</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>Custom Storage Solutions</h3>
+                <p>Design and install personalized storage for your home, maximizing every inch of space.</p>
+            </div>
+            <div class="service-card">
+                <h3>Kitchen & Pantry Organization</h3>
+                <p>Streamline your kitchen with efficient, stylish pantry and cabinet upgrades.</p>
+            </div>
+            <div class="service-card">
+                <h3>Closet Makeovers</h3>
+                <p>Turn chaotic closets into organized retreats tailored to your lifestyle.</p>
+            </div>
+        </div>
+    </section>
 
-        <aside class="sidebar">
-            <h3>Sidebar</h3>
-            <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-            </ul>
-        </aside>
-    </main>
+    <section class="about">
+        <h2>About DSN</h2>
+        <p>At DSN Home Services, LLC, we specialize in transforming ordinary spaces into functional, beautiful areas. With years of experience in custom contracting, our team is dedicated to delivering high-quality results that enhance your daily life. Whether it's a small organizational tweak or a full room redesign, we're here to make your vision a reality.</p>
+        <a href="#get-started" class="cta-button">Learn More</a>
+    </section>
+
+    <section class="get-started" id="get-started">
+        <h2>Ready to Transform Your Space?</h2>
+        <p>Contact us today for a free consultation and take the first step toward a more organized home.</p>
+        <a href="mailto:info@dsnhomeservicesllc.com" class="cta-button">Get Started</a>
+    </section>
 
     <footer>
-        <p>&copy; 2025 Line Co. All rights reserved.</p>
+        <p>&copy; 2025 DSN Home Services, LLC. All rights reserved. | <a href="#" style="color: #fff;">Privacy Policy</a></p>
     </footer>
 </body>
 </html>
