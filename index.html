@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DSN | Transform Your Space - Get Started</title>
+    <title>DSN | Design Solutions for Modern Challenges</title>
     <style>
         * {
             margin: 0;
@@ -12,70 +12,96 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #fff;
+            background-color: #1a1a1a; /* Dark background */
         }
 
         header {
-            background-color: #2c3e50;
+            background-color: #006400; /* Dark green */
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid #228B22; /* Green border */
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
             color: #fff;
-            padding: 1rem 0;
-            text-align: center;
         }
 
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
         }
 
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #90EE90; /* Light green hover */
         }
 
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1920x600?text=Transform+Your+Space') center/cover;
-            color: #fff;
-            text-align: center;
-            padding: 100px 20px;
+            background-color: #2d2d2d; /* Darker gray */
+            padding: 4rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            border: 4px solid #228B22; /* Green border around hero */
+            margin: 0 2rem;
+            position: relative;
         }
 
-        .hero h2 {
-            font-size: 3rem;
+        .hero-image {
+            flex: 0 0 40%;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            filter: blur(2px); /* Blurred as in mockup */
+            border: 2px solid #228B22; /* Green highlight box */
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
             margin-bottom: 1rem;
+            color: #fff;
+            line-height: 1.2;
         }
 
-        .hero p {
-            font-size: 1.5rem;
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.8;
             margin-bottom: 2rem;
         }
 
-        .cta-button {
-            display: inline-block;
-            background-color: #e74c3c;
-            color: #fff;
-            padding: 15px 30px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .cta-button:hover {
-            background-color: #c0392b;
-        }
-
         .services {
-            padding: 60px 20px;
+            padding: 4rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            border: 4px solid #228B22; /* Green border */
         }
 
         .services h2 {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 3rem;
+            color: #fff;
         }
 
         .service-grid {
@@ -85,100 +111,104 @@
         }
 
         .service-card {
-            background: #f8f9fa;
+            background-color: #3d3d3d; /* Slightly lighter dark */
             padding: 2rem;
-            border-radius: 10px;
+            border-radius: 8px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 2px solid #228B22; /* Green border on cards */
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border-radius: 4px;
         }
 
         .service-card h3 {
             font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            color: #90EE90; /* Light green for prices */
         }
 
-        .about {
-            background-color: #ecf0f1;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .about h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .about p {
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            font-size: 1.1rem;
-        }
-
-        .get-started {
-            padding: 60px 20px;
-            text-align: center;
-            background-color: #2c3e50;
-            color: #fff;
-        }
-
-        .get-started h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        .service-card p {
+            font-size: 1rem;
+            opacity: 0.9;
         }
 
         footer {
-            background-color: #34495e;
-            color: #fff;
+            background-color: #006400; /* Dark green */
             text-align: center;
-            padding: 20px;
+            padding: 1rem;
+            color: #fff;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                margin: 0 1rem;
+                padding: 2rem 1rem;
+            }
+
+            .hero-image {
+                flex: none;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>DSN Home Services, LLC</h1>
-        <p>Quality Contractor Services</p>
+        <div class="logo">DSN</div>
+        <nav>
+            <ul>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
     <section class="hero">
-        <h2>Transform Your Space</h2>
-        <p>Expert organization for closets, pantries, and more.</p>
-        <a href="#get-started" class="cta-button">Get Started Today</a>
+        <div class="hero-image">
+            <img src="https://via.placeholder.com/400x500/1a1a1a/fff?text=Portrait" alt="Portrait Image">
+        </div>
+        <div class="hero-content">
+            <h1>Design Solutions for Modern Challenges Expert Design Solutions for Modern Challenges</h1>
+            <p>Where creativity meets precision. Our expert design solutions transform spaces and elevate your brand.</p>
+        </div>
     </section>
 
     <section class="services" id="services">
         <h2>Our Services</h2>
         <div class="service-grid">
             <div class="service-card">
-                <h3>Custom Storage Solutions</h3>
-                <p>Design and install personalized storage for your home, maximizing every inch of space.</p>
+                <img src="https://via.placeholder.com/300x200/3d3d3d/fff?text=Basic+Service+Image" alt="Basic Service">
+                <h3>Basic Service<br>£90</h3>
+                <p>Describe details, price, length of service, and why it's important for your needs.</p>
             </div>
             <div class="service-card">
-                <h3>Kitchen & Pantry Organization</h3>
-                <p>Streamline your kitchen with efficient, stylish pantry and cabinet upgrades.</p>
+                <img src="https://via.placeholder.com/300x200/3d3d3d/fff?text=Intermediate+Service+Image" alt="Intermediate Service">
+                <h3>Intermediate Service<br>£180</h3>
+                <p>Describe details, price, length of service, and why it's important for your needs.</p>
             </div>
             <div class="service-card">
-                <h3>Closet Makeovers</h3>
-                <p>Turn chaotic closets into organized retreats tailored to your lifestyle.</p>
+                <img src="https://via.placeholder.com/300x200/3d3d3d/fff?text=Advanced+Service+Image" alt="Advanced Service">
+                <h3>Advanced Service<br>£250</h3>
+                <p>Describe details, price, length of service, and why it's important for your needs.</p>
             </div>
         </div>
     </section>
 
-    <section class="about">
-        <h2>About DSN</h2>
-        <p>At DSN Home Services, LLC, we specialize in transforming ordinary spaces into functional, beautiful areas. With years of experience in custom contracting, our team is dedicated to delivering high-quality results that enhance your daily life. Whether it's a small organizational tweak or a full room redesign, we're here to make your vision a reality.</p>
-        <a href="#get-started" class="cta-button">Learn More</a>
-    </section>
-
-    <section class="get-started" id="get-started">
-        <h2>Ready to Transform Your Space?</h2>
-        <p>Contact us today for a free consultation and take the first step toward a more organized home.</p>
-        <a href="mailto:info@dsnhomeservicesllc.com" class="cta-button">Get Started</a>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 DSN Home Services, LLC. All rights reserved. | <a href="#" style="color: #fff;">Privacy Policy</a></p>
+    <footer id="contact">
+        <p>&copy; 2025 DSN. All rights reserved. | <a href="#" style="color: #90EE90;">Privacy Policy</a></p>
     </footer>
 </body>
 </html>
