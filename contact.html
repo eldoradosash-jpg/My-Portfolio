@@ -3,206 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | My Portfolio</title>
+    <title>My Portfolio</title> <!-- Updated to match your screenshot -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
-        }
-
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 2rem;
-        }
-
-        nav {
-            background-color: #444;
-            padding: 0.5rem 0;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            transition: background-color 0.3s;
-        }
-
-        nav a:hover {
-            background-color: #555;
-        }
-
-        main {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        .contact-info {
-            background-color: #fff;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-        }
-
-        .contact-info h2 {
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .contact-item {
-            margin-bottom: 1rem;
-        }
-
-        .contact-item h3 {
-            color: #555;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-form {
-            background-color: #fff;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
-        }
-
-        .form-group textarea {
-            height: 120px;
-            resize: vertical;
-        }
-
-        button {
-            background-color: #333;
-            color: #fff;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #555;
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem 0;
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                gap: 0;
-            }
-
-            nav a {
-                display: block;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #fff; background-color: #1a1a1a; }
+        header { background-color: #006400; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid #228B22; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .logo { font-size: 2rem; font-weight: bold; color: #fff; }
+        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav a { color: #fff; text-decoration: none; font-size: 1.1rem; cursor: pointer; transition: color 0.3s; }
+        nav a:hover, nav a.active { color: #90EE90; }
+        .section { display: none; padding-top: 100px; min-height: 100vh; }
+        .section.active { display: block; }
+        .hero { background-color: #2d2d2d; padding: 4rem 2rem; display: flex; align-items: center; gap: 4rem; border: 4px solid #228B22; margin: 0 2rem; }
+        .hero-image { flex: 0 0 40%; } .hero-image img { width: 100%; height: auto; filter: blur(2px); border: 2px solid #228B22; }
+        .hero-content { flex: 1; } .hero-content h1 { font-size: 2.5rem; margin-bottom: 1rem; color: #fff; line-height: 1.2; }
+        .hero-content p { font-size: 1.2rem; opacity: 0.8; margin-bottom: 2rem; }
+        .services { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; border: 4px solid #228B22; }
+        .services h2 { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: #fff; }
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .service-card { background-color: #3d3d3d; padding: 2rem; border-radius: 8px; text-align: center; border: 2px solid #228B22; }
+        .service-card img { width: 100%; height: 200px; object-fit: cover; margin-bottom: 1rem; border-radius: 4px; }
+        .service-card h3 { font-size: 1.8rem; margin-bottom: 0.5rem; color: #90EE90; }
+        .service-card p { font-size: 1rem; opacity: 0.9; }
+        .contact-content { max-width: 800px; margin: 0 auto 4rem; padding: 0 2rem; border: 4px solid #228B22; background-color: #2d2d2d; border-radius: 8px; }
+        .contact-content h1 { text-align: center; font-size: 2.5rem; margin-bottom: 2rem; color: #fff; }
+        .contact-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+        .contact-item { background-color: #3d3d3d; padding: 1.5rem; border-radius: 8px; border: 2px solid #228B22; text-align: center; }
+        .contact-item h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #90EE90; }
+        .contact-item p { font-size: 1.1rem; opacity: 0.9; }
+        .contact-form { background-color: #3d3d3d; padding: 2rem; border-radius: 8px; border: 2px solid #228B22; }
+        .contact-form h2 { margin-bottom: 1rem; color: #fff; }
+        .form-group { margin-bottom: 1rem; } .form-group label { display: block; margin-bottom: 0.5rem; color: #fff; }
+        .form-group input, .form-group textarea { width: 100%; padding: 0.75rem; background-color: #1a1a1a; border: 1px solid #228B22; border-radius: 4px; color: #fff; font-size: 1rem; }
+        .form-group textarea { height: 120px; resize: vertical; }
+        .submit-btn { background-color: #006400; color: #fff; padding: 1rem 2rem; border: none; border-radius: 4px; font-size: 1.1rem; cursor: pointer; transition: background-color 0.3s; width: 100%; }
+        .submit-btn:hover { background-color: #228B22; }
+        footer { background-color: #006400; text-align: center; padding: 1rem; color: #fff; margin-top: 2rem; }
+        @media (max-width: 768px) { .hero { flex-direction: column; text-align: center; margin: 0 1rem; padding: 2rem 1rem; } .hero-image { width: 100%; max-width: 300px; } .hero-content h1 { font-size: 2rem; } .contact-info { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
     <header>
-        <h1>My Portfolio</h1>
+        <div class="logo">My Portfolio</div> <!-- Updated logo -->
+        <nav>
+            <ul>
+                <li><a href="#" data-section="services" class="active">Services</a></li>
+                <li><a href="#" data-section="contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+    <section id="services" class="section active">
+        <div class="hero">
+            <div class="hero-image"><img src="https://via.placeholder.com/400x500/1a1a1a/fff?text=Portrait" alt="Portrait"></div>
+            <div class="hero-content">
+                <h1>Design Solutions for Modern Challenges</h1>
+                <p>Where creativity meets precision. Transform spaces and elevate your brand.</p>
+            </div>
+        </div>
+        <div class="services">
+            <h2>Our Services</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/300x200/3d3d3d/fff?text=Basic" alt="Basic">
+                    <h3>Basic Service<br>£90</h3><p>Details on service.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/300x200/3d3d3d/fff?text=Intermediate" alt="Intermediate">
+                    <h3>Intermediate Service<br>£180</h3><p>Details on service.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/300x200/3d3d3d/fff?text=Advanced" alt="Advanced">
+                    <h3>Advanced Service<br>£250</h3><p>Details on service.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <main>
-        <section class="contact-info">
-            <h2>Get in Touch</h2>
-            <div class="contact-item">
-                <h3>Email</h3>
-                <p>your.email@example.com</p> <!-- Replace with your email -->
+    <section id="contact" class="section">
+        <div class="contact-content">
+            <h1>Get in Touch</h1>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Your Name</h3>
+                    <p>John Doe <!-- Edit with your name --></p>
+                </div>
+                <div class="contact-item">
+                    <h3>Phone</h3>
+                    <p>+44 (0)70 1234 5678 <!-- Edit with your tel --></p>
+                </div>
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <p>your.email@example.com <!-- Edit with your email --></p>
+                </div>
             </div>
-            <div class="contact-item">
-                <h3>Phone</h3>
-                <p>+1 (123) 456-7890</p> <!-- Replace with your phone number -->
+            <div class="contact-form">
+                <h2>Send a Message</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tel">Phone</label>
+                        <input type="tel" id="tel" placeholder="Your Phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send</button>
+                </form>
             </div>
-            <div class="contact-item">
-                <h3>Location</h3>
-                <p>Your City, State, Country</p> <!-- Replace with your location -->
-            </div>
-        </section>
-
-        <section class="contact-form">
-            <h2>Send a Message</h2>
-            <form action="https://formspree.io/f/your-form-id" method="POST"> <!-- Replace with your Formspree endpoint or similar -->
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <footer>
         <p>&copy; 2025 My Portfolio. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Improved JS with error handling and logging
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded, setting up nav...'); // Check console for this
+            const navLinks = document.querySelectorAll('nav a[data-section]');
+            const sections = document.querySelectorAll('.section');
+
+            if (navLinks.length === 0 || sections.length === 0) {
+                console.error('No nav links or sections found!');
+                return;
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = this.getAttribute('data-section');
+                    console.log('Clicked:', target); // Logs to console
+
+                    // Hide all sections
+                    sections.forEach(s => s.classList.remove('active'));
+                    // Remove active from all links
+                    navLinks.forEach(l => l.classList.remove('active'));
+
+                    // Show target
+                    const targetSection = document.getElementById(target);
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                        this.classList.add('active');
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        console.log('Switched to:', target);
+                    } else {
+                        console.error('Section not found:', target);
+                    }
+
+                    // Auto-fill contact form if switching to contact
+                    if (target === 'contact') {
+                        document.getElementById('name').value = 'John Doe'; // Edit your name
+                        document.getElementById('tel').value = '+44 (0)70 1234 5678'; // Edit your tel
+                        document.getElementById('email').value = 'your.email@example.com'; // Edit your email
+                    }
+                });
+            });
+            console.log('Nav setup complete.'); // Confirm in console
+        });
+    </script>
 </body>
 </html>
